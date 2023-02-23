@@ -20,7 +20,14 @@ class RoundedEdgesHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      color: Color(0xFF615AAB),
+     
+      decoration: BoxDecoration(
+         color: Color(0xFF615AAB),
+         borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(70),
+          bottomRight: Radius.circular(70)
+         )
+      ),
     );
   }
 }
