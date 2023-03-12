@@ -88,6 +88,19 @@ class CircleHeader extends StatelessWidget {
 }
 
 
+class WavesHeader extends StatelessWidget {
+  const WavesHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      color: Colors.blueGrey,
+      child: CustomPaint(painter: _wavesPainterHeader()),
+    );
+  }
+}
 
 
 
@@ -224,3 +237,37 @@ canvas.drawPath(path, paint);
     throw true;
   }
 } 
+
+class _wavesPainterHeader extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    // TODO: implement paint
+
+final paint = Paint();
+
+paint.color = Colors.indigo;
+paint.style = PaintingStyle.fill;
+paint.strokeWidth = 5;
+
+final path = Path();
+
+
+path.moveTo(0, size.height * 0.4);
+path.quadraticBezierTo(size.width * 0.25, size.height * 0.5, size.width * 0.5, size.height * 0.4);
+path.quadraticBezierTo(size.width * 0.75, size.height * 0.3, size.width, size.height * 0.4);
+path.lineTo(size.width, 0);
+path.lineTo(0, 0);
+
+
+
+
+canvas.drawPath(path, paint);
+
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    // TODO: implement shouldRepaint
+    throw true;
+  }
+}
