@@ -45,6 +45,23 @@ class DiagonalHeader extends StatelessWidget {
   }
 }
 
+class TrianguleHeader extends StatelessWidget {
+  const TrianguleHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      color: Colors.blueGrey,
+      child: CustomPaint(painter: _triangulePainterHeader()),
+    );
+  }
+}
+
+
+
+
 class _diagonalPainterHeader extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -54,7 +71,6 @@ class _diagonalPainterHeader extends CustomPainter {
     final paint = Paint();
 
     ///Propiedades
-
     paint.color = Colors.blueGrey;
     paint.style = PaintingStyle.fill;
     paint.strokeWidth = 5;
@@ -75,4 +91,40 @@ class _diagonalPainterHeader extends CustomPainter {
     // TODO: implement shouldRepaint
     return true;
   }
+}
+
+class _triangulePainterHeader extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    
+    ///lapi ///
+    final paint = Paint();
+
+    ///Propieades
+    paint.color = Colors.indigo;
+    paint.style = PaintingStyle.fill;
+    paint.strokeWidth = 5;
+
+    ///dibujar 
+    
+    final path = Path();
+
+    path.moveTo(0, 0);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.lineTo(0, 0);
+
+canvas.drawPath(path, paint);
+
+
+
+
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    // TODO: implement shouldRepaint
+    throw true;
+  }
+
 }
