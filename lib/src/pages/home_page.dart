@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
       /*appBar: AppBar(
         title: Text('Diseños App'),
       ),*/
-      body: TrianguleHeader()
+      body: HeaderPico()
     );
   }
 }

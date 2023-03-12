@@ -59,6 +59,20 @@ class TrianguleHeader extends StatelessWidget {
   }
 }
 
+class HeaderPico extends StatelessWidget {
+  const HeaderPico({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      color: Colors.blueGrey,
+      child: CustomPaint(painter: _picoPainterHeader()),
+    );
+  }
+}
+
 
 
 
@@ -127,4 +141,36 @@ canvas.drawPath(path, paint);
     throw true;
   }
 
+}
+
+class _picoPainterHeader extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+
+    final paint = Paint();
+
+    paint.color = Colors.indigo;
+    paint.style = PaintingStyle.fill;
+    paint.strokeWidth = 5;
+
+
+
+    final path = Path();
+
+    path.moveTo(0, size.height * 0.45);
+    path.lineTo(size.width * 0.5, size.height * 0.5);
+    path.lineTo(size.width, size.height * 0.45);
+    path.lineTo(size.width, 0);
+    path.lineTo(0,0);
+
+    canvas.drawPath(path, paint);
+
+    // TODO: implement paint
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    // TODO: implement shouldRepaint
+    throw true;
+  }
 }
